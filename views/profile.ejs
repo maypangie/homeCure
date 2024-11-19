@@ -1,0 +1,83 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>HomeCure - Remedies</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> -
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+
+
+
+
+    <a href="/logout" class="logout-btn">Log Out</a> <!-- Logout Button -->
+
+
+
+    <h1>Welcome to HomeCure,</h1>
+        <h4>where you can find holistic home remedies for your every day symptoms.</h4>
+    
+
+
+
+        <div class="search-container">
+            <h2>Enter your symptom, search for remedies</h2>
+            <div>
+                <input type="text" id="symptom-input" placeholder="Enter a symptom (e.g., stomach ache)">
+                <button id="search-button">Search</button>
+            </div>
+            <h5>Results:</h5>
+            <ul>
+    
+
+
+
+            <ul id="remedies-list"></ul>
+
+            <div class="remedies-container">
+              
+                <ul>
+                 
+                 
+                 
+                 <!-- I want to add a favorite button to pin user's fav remedies-->
+                 <!--  <% remedies.forEach(remedy => { %>
+                        <li>
+                            <h4><%= remedy.name %></h4>
+                            <p><%= remedy.usage %></p>
+                            <form action="/favorites/<%= remedy._id %>" method="POST">
+                                <button type="submit" class="btn btn-success">Add to Favorites</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div> -->
+            
+
+
+        </div>
+        
+
+
+   
+        
+
+
+
+
+
+
+
+    <!--<h3>Enter your symptom, search for remedies</h3>
+    <input type="text" id="symptom-input" placeholder="Enter a symptom (e.g., stomach ache)" />
+    <button id="search-button">Search</button>
+
+    <h4>Results:</h4>
+    <ul id="remedies-list"></ul>-->
+
+    <script src="/js/homeCure.js"></script>
+</div>
+</body>
+</html>
