@@ -8,9 +8,9 @@ Key Features:
 <li>Search for Remedies: Enter a symptom and discover natural treatments.</li>
 
 Future Features:
-Personalized Notes: Add, edit, or delete your thoughts on each remedy's effectiveness.
-Favorites Section: Save remedies for quick access.
-Add Favorites: Pin your most-used remedies for easy access.
-Write Notes: Track your experience with remedies and note what works best.
-Edit or Delete: Manage your notes and favorites with ease.
+<li>Personalized Notes: Add, edit, or delete your thoughts on each remedy's effectiveness.</li>
+<li>Favorites Section: Save remedies for quick access.</li>
+<li>Add Favorites: Pin your most-used remedies for easy access.</li>
+<li>Write Notes: Track your experience with remedies and note what works best.</li>
+<li>Edit or Delete: Manage your notes and favorites with ease.</li>
 
