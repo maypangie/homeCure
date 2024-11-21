@@ -6,5 +6,11 @@ HomeCure is a simple yet powerful app designed to provide natural remedies for e
 
 Key Features:
 <li>Search for Remedies: Enter a symptom and discover natural treatments.</li>
- 
+
+Future Features:
+Personalized Notes: Add, edit, or delete your thoughts on each remedy's effectiveness.
+Favorites Section: Save remedies for quick access.
+Add Favorites: Pin your most-used remedies for easy access.
+Write Notes: Track your experience with remedies and note what works best.
+Edit or Delete: Manage your notes and favorites with ease.
 
