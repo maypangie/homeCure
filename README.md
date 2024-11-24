@@ -1,3 +1,8 @@
+
+
+![homeCure](https://github.com/user-attachments/assets/60fbaa76-cf3f-4249-885c-80ad23231a2b)
+
+
 <h1>🌿 HomeCure</h1>
 Your guide to holistic home remedies for everyday symptoms.
 
