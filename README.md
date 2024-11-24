@@ -4,8 +4,8 @@
 
 
 <h1>🌿 HomeCure</h1>
-https://homecure-e4nr.onrender.com/ <br>
-Your guide to holistic home remedies for everyday symptoms.
+Your guide to holistic home remedies for everyday symptoms.<br>
+https://homecure-e4nr.onrender.com/ 
 
 <h3>About the Project:</h3>
 HomeCure is a simple yet powerful app designed to provide natural remedies for everyday symptoms. With a focus on holistic wellness, this app empowers users to explore remedies rooted in traditional practices for relief and better living.
