@@ -1,6 +1,6 @@
 
 
-![homeCure](https://github.com/user-attachments/assets/60fbaa76-cf3f-4249-885c-80ad23231a2b)
+![home-cure1](https://github.com/user-attachments/assets/25926921-c569-4865-af55-773a17f1a76f)
 
 
 <h1>🌿 HomeCure</h1>
