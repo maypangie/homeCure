@@ -1,4 +1,13 @@
-const Remedy = require('../models/remedy');
+//const Remedy = require('../models/remedy');
+
+const Remedy = require('./remedy'); // './' points to the current folder
+const herbsData = require('./herbsData'); // Adjust the path relative to routes.js
+const Favorite = require('./favorites');
+
+
+
+ 
+
 
 module.exports = function (app, passport) {
     // Home route
@@ -26,6 +35,10 @@ module.exports = function (app, passport) {
     }));
 
 
+
+
+
+
 // profile
 
 
@@ -45,28 +58,29 @@ module.exports = function (app, passport) {
     
 
 
-    // Favorites route
-   /* app.get('/favorites', isLoggedIn, async (req, res) => {
-        try {
-            const userFavorites = await Remedy.find({ favoritedBy: req.user._id });
-            res.render('favorites', { favorites: userFavorites });
-        } catch (err) {
-            console.error('Error fetching favorites:', err);
-            res.status(500).send('Error loading favorites');
-        }
-    });
 
-*/
 
 
     // Fetch remedies based on user input (API route)
     app.get('/api/remedies', async (req, res) => {
-        const { symptom } = req.query;
-        console.log('Symptom received:', symptom);
+        const { symptom } = req.query; // Get symptom from query string
+        console.log('Symptom received:', symptom); // Debugging log
     
         try {
-            const remedies = await Remedy.find({ symptom: new RegExp(`^${symptom}$`, 'i') }); // Case-insensitive search
-            console.log('Remedies found:', remedies); 
+            // Find remedies based on symptom (case-insensitive)
+            const remediesData = await Remedy.find({ symptom: { $regex: symptom, $options: 'i' } });
+    
+            if (!remediesData || remediesData.length === 0) {
+                console.log('No remedies found for symptom:', symptom);
+                return res.status(404).json({ message: 'No remedies found for this symptom.' });
+            }
+    
+            console.log('Remedies found:', remediesData);
+    
+            // Flatten remedies arrays if remediesData contains multiple matching documents
+            const remedies = remediesData.map((doc) => doc.remedies).flat();
+    
+            // Send the remedies array back as a JSON response
             res.json(remedies);
         } catch (err) {
             console.error('Error fetching remedies:', err);
@@ -76,78 +90,85 @@ module.exports = function (app, passport) {
     
 
 
+// herbs data
+
+
+
+
+
+    // Herbs page route
+    app.get('/herbs', (req, res) => {
+        res.render('herbs'); // Render the herbs.ejs page
+    });
+
+    // API route for fetching herbs by category
+    app.get('/api/herbs', (req, res) => {
+        const category = req.query.category;
+        if (herbsData[category]) {
+            res.json(herbsData[category]); // Return herbs for the selected category
+        } else {
+            res.status(404).json({ message: 'Category not found.' });
+        }
+    });
+
+   
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// commenting this out, this incomplete but I want to be able to pin symptoms & have it go into a separate page
-// route to the favorites.ejs file where users can save/delete symptoms&their remedies + add comments
-
-  /* Add a symptom to favorites
-app.post('/favorites/symptom/:symptom', isLoggedIn, async (req, res) => {
-    const { symptom } = req.params;
-
+ // Pin a herb
+ app.post("/favorites", async (req, res) => {
     try {
-        // Find remedies for the symptom
-        const remedies = await Remedy.find({ symptom: new RegExp(`^${symptom}$`, 'i') });
+        const { name, usage } = req.body;
 
-        // Save the symptom and its remedies to the user's favorites
-        const favoriteSymptom = {
-            userId: req.user._id,
-            symptom,
-            remedies,
-        };
+        // Create a new favorite entry for the logged-in user
+        const favorite = new Favorite({
+            userId: req.user._id, // Ensure `req.user` is populated via session or auth middleware
+            name,
+            usage,
+        });
 
-        await UserFavorites.create(favoriteSymptom); // Create a new favorite symptom document
-        res.redirect('/favorites');
+        await favorite.save();
+        res.status(201).json({ success: true, message: `${name} added to favorites!` });
     } catch (err) {
-        console.error('Error adding favorite symptom:', err);
-        res.status(500).send('Failed to add favorite symptom');
+        console.error("Error saving favorite:", err);
+        res.status(500).json({ success: false, error: "Failed to add to favorites." });
     }
 });
 
 
-app.get('/favorites', isLoggedIn, async (req, res) => {
+
+
+
+app.get("/favorites", async (req, res) => {
     try {
-        const favorites = await UserFavorites.find({ userId: req.user._id });
-        res.render('favorites', { favorites });
+        const favorites = await Favorite.find({ userId: req.user._id });
+        res.render("favorites", { favorites });
     } catch (err) {
-        console.error('Error fetching favorites:', err);
-        res.status(500).send('Error loading favorites');
+        console.error("Error fetching favorites:", err);
+        res.status(500).send("Failed to load favorites.");
     }
 });
 
 
-app.delete('/favorites/:id', isLoggedIn, async (req, res) => {
-    const { id } = req.params;
-
+app.delete('/favorites/:id', async (req, res) => {
     try {
-        await UserFavorites.findByIdAndDelete(id);
-        res.json({ message: 'Removed from favorites' });
+      console.log('Delete request received for ID:', req.params.id);
+      const deletedFavorite = await Favorite.findByIdAndDelete(req.params.id);
+      if (!deletedFavorite) {
+        console.error('Favorite not found');
+        return res.status(404).send('Favorite not found');
+      }
+      console.log('Deleted Favorite:', deletedFavorite);
+      res.redirect('/favorites'); // Redirect to favorites page
     } catch (err) {
-        console.error('Error removing favorite symptom:', err);
-        res.status(500).send('Failed to remove favorite symptom');
+      console.error('Error removing favorite:', err);
+      res.status(500).send('Failed to remove favorite.');
     }
-});
-
-*/
-
+  });
+  
 
 
 
@@ -169,7 +190,66 @@ app.delete('/favorites/:id', isLoggedIn, async (req, res) => {
 
 
 
-    // Logout route
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Logout route
+
+
+
+    
+    app.post('/logout', (req, res) => {
+        const userId = req.user._id;  // Assuming user is logged in
+        const remedyId = req.body.remedyId;
+
+        app.get('/logout', (req, res) => {
+            req.favorites(() => {
+                console.log('user is logged out');
+            });
+            res.redirect('/');
+        });
+
+    });
+
+
+
+    
     app.get('/logout', (req, res) => {
         req.logout(() => {
             console.log('User logged out');
@@ -182,4 +262,10 @@ app.delete('/favorites/:id', isLoggedIn, async (req, res) => {
         if (req.isAuthenticated()) return next();
         res.redirect('/');
     }
+
+
 };
+
+
+
+

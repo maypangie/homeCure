@@ -1,18 +1,83 @@
-<!--<h1>Your Pinned Remedies</h1>
-<% favorites.forEach(favorite => { %>
-    <div class="favorite-item">
-        <h2><%= favorite.symptom %></h2>
-        <ul>
-            <% favorite.remedies.forEach(remedy => { %>
-                <li>
-                    <h4><%= remedy.name %></h4>
-                    <p><%= remedy.usage %></p>
-                </li>
-            <% }) %>
-        </ul>
-        <form action="/favorites/<%= favorite._id %>" method="POST">
-            <button type="submit" class="btn btn-danger">Remove</button>
-        </form>
-    </div>
-<% }) %> -->
+<!doctype html>
+<html>
+<head>
+    <title>Favorites</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> -
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorites</title>
+</head>
+<body>
+    
+  <h1>Pinned Herbs</h1>
+  <h4>Personal archive for your favorite herbs.</h4>
+  
+  
+    <a href="/profile" class="back-btn">Back to Profile</a>
+    <a href="/herbs" class="herbs-btn">Herbs</a>
+
+    <a href="/logout" class="logout-btn">Log Out</a>
+    
+<div class="favorites-container">
+   
+  <img src="/css/favoritesgraphic.png" alt="fav Photo" class="fav-photo">
+    <ul id="favorites-list">
+    
+       
+      <ul>
+        <% favorites.forEach((favorite) => { %>
+          <li style="display: flex; align-items: center; margin-bottom: 10px; border: 1px solid #ddd; padding: 10px; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <div style="flex: 1;">
+              <strong><%= favorite.name %></strong>: <%= favorite.usage %>
+            </div>
+            <form
+              action="/favorites/<%= favorite._id %>?_method=DELETE"
+              method="POST"
+              style="display: inline;"
+            >
+              <button type="submit" class="delete-btn">🗑️
+              </button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+      
+
+
+    </form>
+      
+      </ul>
+      </div>
+  </ul>
+</body>
+</html>
+
+
+
+
+        
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
 

@@ -5,12 +5,16 @@ color: forestgreen;
 
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4; 
     color: #2e3b28; 
-}
+    cursor: url(https://cur.cursors-4u.net/nature/nat-10/nat967.cur), auto !important;
+} 
+
+
+
 
 .container {
     max-width: 800px;
@@ -38,34 +42,20 @@ header p {
     font-style: italic;
 }
 
-/* Button Styles */
-button, .btn {
-    background-color: #4caf50; 
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    margin-top: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
 
-button:hover, .btn:hover {
-    background-color: #3a7a3e; 
-}
 
 /* Form Styles */
 form {
-    background-color: #fff; 
-    padding: 20px;
+    background-color: #f9f9f9; 
+    padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
 }
 
 form label {
     font-weight: bold;
     color: #2e3b28;
+    padding: 10px;
 }
 
 form input, form textarea {
@@ -103,7 +93,7 @@ form input, form textarea {
 
 
 
-.logout-btn {
+.container .logout-btn {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -112,15 +102,98 @@ form input, form textarea {
     border: none;
     padding: 10px 15px;
     font-size: 1rem;
-    cursor: pointer;
+    
     border-radius: 5px;
     transition: background-color 0.3s ease;
     text-decoration: none; /* Ensure it's styled as a button */
 }
 
+
 .logout-btn:hover {
-    background-color: #3a7a3e; /* Darker green on hover */
+    background-color: #1b5e20; /* Darker green on hover */
+    cursor: url(https://cur.cursors-4u.net/nature/nat-10/nat967.cur), auto !important;
 }
+
+
+
+.container .herbs-btn {
+   
+    left: 20px;
+    background-color: #2e7d32; /* Match the theme */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Ensure it's styled as a button */
+
+}
+
+.herbs-btn:hover {
+    background-color: #1b5e20; /* Darker green on hover */
+    cursor: url(https://cur.cursors-4u.net/nature/nat-10/nat967.cur), auto !important;
+}
+
+.container .fav-btn {
+   
+    left: 20px;
+    background-color: #2e7d32; /* Match the theme */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Ensure it's styled as a button */
+
+}
+
+.fav-btn:hover {
+    background-color: #1b5e20; /* Darker green on hover */
+    cursor: url(https://cur.cursors-4u.net/nature/nat-10/nat967.cur), auto !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container .back-btn {
+    left: 20px;
+    background-color: #2e7d32; /* Match the theme */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Ensure it's styled as a button */
+
+}
+
+.back-btn:hover {
+    background-color: #1b5e20; /* Darker green on hover */
+    cursor: url(https://cur.cursors-4u.net/nature/nat-10/nat967.cur), auto !important;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -132,8 +205,10 @@ form input, form textarea {
     justify-content: center;
     text-align: center;
     margin: 0 auto;
-    margin-top: 100px; /* Adjust this for vertical alignment */
+    margin-top: 40px; /* Adjust this for vertical alignment */
     padding: 20px;
+    padding-left: 0px;
+    padding-right: 40px;
     max-width: 600px;
     background-color: #ffffff; /* White background for the container */
     border-radius: 10px;
@@ -156,13 +231,14 @@ form input, form textarea {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    
     font-size: 16px;
     transition: background-color 0.3s ease;
 }
 
 .search-container button:hover {
     background-color: #1b5e20; 
+    cursor: url(https://cur.cursors-4u.net/nature/nat-10/nat967.cur), auto !important;
 }
 
 /* Results styling */
@@ -187,3 +263,159 @@ form input, form textarea {
 #remedies-list li strong {
     color: #2e7d32; /* remedy names */
 }
+
+#results-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+
+
+#results-list li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    align-items: left;
+}
+
+#results-list li strong {
+    color: #2e7d32; 
+}
+
+
+#herbs-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 40px; /* Adjust this for vertical alignment */
+    padding: 20px;
+    max-width: 600px;
+    background-color: #ffffff; /* White background for the container */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* Button Styles */
+button, .btn {
+    background-color: #2e7d32;  
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    font-size: 1rem;
+    
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+button:hover, .btn:hover {
+    background-color: #1b5e20; 
+    cursor: url(https://cur.cursors-4u.net/nature/nat-10/nat967.cur), auto !important;
+}
+
+
+/* Results styling */
+#favorites-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+#favorites-list li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+
+
+#favorites-list li strong {
+    color: #2e7d32; /* remedy names */
+}
+
+    .favorites-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 40px; /* Adjust this for vertical alignment */
+        padding: 20px;
+        padding-right: 50px;
+        max-width: 600px;
+        background-color: #ffffff; /* White background for the container */
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+
+
+
+    
+
+
+  
+  
+  /* Button styles */
+  .delete-btn {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .delete-btn i {
+    font-size: 1.2rem;
+  }
+  
+  .delete-btn:hover {
+    background-color: #218838;
+  }
+  
+  
+
+  .remedies-photo {
+    width: 500px;
+    height: 250px;
+  
+   
+  }
+
+  .herbs-photo {
+    width: 350px;
+    height: 250px;
+    padding-bottom: 15px;
+  
+   
+  }
+  
+  .fav-photo {
+    width: 380px;
+    height: 280px;
+    
+  
+   
+  }

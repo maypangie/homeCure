@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Herbs Guide</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> -
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Herbs Guide</h1>
+    <h4>Explore different herbs and their healing properties <br>
+      and pin your favorites in an archive for later.</h4>
+    <a href="/profile" class="back-btn">Profile</a>
+    <a href="/favorites" class="fav-btn">Favorites</a>
+
+    <a href="/logout" class="logout-btn">Log Out</a>
+    <!-- Dropdown Menu -->
+    <form id="herbs-form">
+      <img src="/css/herbsgraphic.png" alt="herbs Photo" class="herbs-photo">
+      <select id="category" name="category">
+        <option value="">Categories:</option>
+        <option value="Culinary Herbs">Culinary Herbs</option>
+        <option value="Medicinal Herbs">Medicinal Herbs</option>
+        <option value="Herbs for Skin and Hair">Herbs for Skin and Hair</option>
+        <option value="Adaptogenic Herbs (Stress Relief)">Adaptogenic Herbs (Stress Relief)</option>
+        <option value="Detoxifying Herbs">Detoxifying Herbs</option>
+        <option value="Herbs for Immune Support">Herbs for Immune Support</option>
+        <option value="Herbs for Women’s Health">Herbs for Women’s Health</option>
+        <option value="Herbs for Digestive Health">Herbs for Digestive Health</option>
+        <option value="Herbs for Respiratory Health">Herbs for Respiratory Health</option>
+        <option value="Herbs for Anxiety and Relaxation">Herbs for Anxiety and Relaxation</option>
+        <option value="Herbs for Cardiovascular Health">Herbs for Cardiovascular Health</option>
+      </select>
+      <button type="submit">Search</button>
+    
+
+    <!-- Results Section -->
+    <form id="herbs-results">
+      <h5>Results:</h5>
+      <ul id="results-list"></ul>
+
+
+      
+  
+      
+    
+    </div>
+
+    <script src="/js/herbs.js"></script>
+  </div>
+</body>
+</html>
+
+
+
+
+
